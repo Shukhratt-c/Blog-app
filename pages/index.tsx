@@ -50,11 +50,10 @@ export default function Home({post}: any ) {
 
       <div className=" grid lg:grid-cols-3 2xl:px-8 2xl:grid-cols-4 col-start-1 row-start-1  md:grid-cols-2 sm:justify-center gap-5 grid-cols-1 z-20">
 
-          {loading ? card.map((index: number) => {
-            return (
+          {loading && card.map((index: number) => (
             <SkeletonCard key={index} />
-            )
-          }) : post.slice(pagesVisited, pagesVisited + postsPerPage).map((post: any) => ( <PostCard post={post.node} key={post.title}  /> )) }
+          ))} 
+          {!loading && post.slice(pagesVisited, pagesVisited + postsPerPage).map((post: any) => ( <PostCard post={post.node} key={post.title}  /> )) }
         <div className=" lg:row-span-2 col-span-1 lg:col-start-3 2xl:col-start-4">
           <div className='lg:sticky  relative'>  
             <PostWidget categories={undefined} slug={undefined}  />
