@@ -8,7 +8,7 @@ import ReactPaginate  from "react-paginate"
 
 import React, { useEffect, useState } from 'react'
 
-export default function Home({ post } ) {  
+export default function Home({post}: any) {  
   const [loading, setLoading] = useState(true);
   const [pageNumber, setPageNumber] = useState(0)
 
@@ -28,7 +28,7 @@ export default function Home({ post } ) {
 
   const pageCount = Math.ceil(post.length / postsPerPage);
 
-  const changePage = ({ selected }) => {
+  const changePage = ({selected}: any) => {
     setPageNumber(selected);
     window.scrollTo(0, 540)
   };
