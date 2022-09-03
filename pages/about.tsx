@@ -56,7 +56,7 @@ function About() {
 
     const interval = setInterval(() => {
       let time = (new Date().valueOf() - new Date(1121616240000).valueOf() ) / (1000 * 60 * 60 * 24 * 365.25); // milliseconds per year
-      el.innerText = time.toString().substring(0, 12);
+      el!.innerText = time.toString().substring(0, 12);
     }, 50);
     return () => clearInterval(interval);
   }, []);
