@@ -8,7 +8,7 @@ import ReactPaginate  from "react-paginate"
 
 import React, { useEffect, useState } from 'react'
 
-export default function Home({post}: any) {  
+export default function Home({post}: any ) {  
   const [loading, setLoading] = useState(true);
   const [pageNumber, setPageNumber] = useState(0)
 
@@ -33,11 +33,13 @@ export default function Home({post}: any) {
     window.scrollTo(0, 540)
   };
 
+  const card =  Array(post.length).fill(0);
+
 
   //Initialize an array of length 13 and fill it with 0's
 
   return (
-  <>
+    <React.Fragment>
     <div className="container mx-auto px-10 mb-8">
       <div>
           <About />
@@ -47,7 +49,12 @@ export default function Home({post}: any) {
       </div>
 
       <div className=" grid lg:grid-cols-3 2xl:px-8 2xl:grid-cols-4 col-start-1 row-start-1  md:grid-cols-2 sm:justify-center gap-5 grid-cols-1 z-20">
-          {loading ? <SkeletonCard cards={post.length} /> : post.slice(pagesVisited, pagesVisited + postsPerPage).map((post: any) => ( <PostCard post={post.node} key={post.title}  /> )) }
+
+          {loading ? card.map((index: number) => {
+            return (
+            <SkeletonCard key={index} />
+            )
+          }) : post.slice(pagesVisited, pagesVisited + postsPerPage).map((post: any) => ( <PostCard post={post.node} key={post.title}  /> )) }
         <div className=" lg:row-span-2 col-span-1 lg:col-start-3 2xl:col-start-4">
           <div className='lg:sticky  relative'>  
             <PostWidget categories={undefined} slug={undefined}  />
@@ -92,8 +99,8 @@ export default function Home({post}: any) {
         </div>
       </div>
     </div>
-    </div>
-  </>
+  </div>
+  </React.Fragment>
   );
 }
 
