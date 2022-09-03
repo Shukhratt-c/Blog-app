@@ -24,7 +24,7 @@ export const darkTheme: Theme = {
   name: "dark"
 };
 
-const themeContext = React.createContext<Theme>(undefined);
+const themeContext = React.createContext<Theme>(string);
 
 export const invertBg = (color: string) =>
   color === lightTheme.color ? darkTheme.color : lightTheme.color;
