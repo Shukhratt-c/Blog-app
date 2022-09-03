@@ -1,86 +1,109 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
+import { Key } from 'react'
+import { PostCard, PostWidget, About, SkeletonCard } from "../components"
+import { getPosts} from '../services'
+import { FeaturedPosts } from '../sections'
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
+import ReactPaginate  from "react-paginate"
 
-const Home: NextPage = () => {
+import React, { useEffect, useState } from 'react'
+
+export default function Home({ post } ) {  
+  const [loading, setLoading] = useState(true);
+  const [pageNumber, setPageNumber] = useState(0)
+
+  const postsPerPage = 10
+  const pagesVisited = pageNumber * postsPerPage 
+
+
+
+  useEffect(() => {
+    if (post) {
+      setTimeout(() => {
+        setLoading(false)
+        ;
+      }, 30000);
+    }
+  }, [post]);
+
+  const pageCount = Math.ceil(post.length / postsPerPage);
+
+  const changePage = ({ selected }) => {
+    setPageNumber(selected);
+    window.scrollTo(0, 540)
+  };
+
+
+  //Initialize an array of length 13 and fill it with 0's
+
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+  <>
+    <div className="container mx-auto px-10 mb-8">
+      <div>
+          <About />
+      </div>
+      <div className="z-20">
+            <FeaturedPosts/>
+      </div>
 
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
+      <div className=" grid lg:grid-cols-3 2xl:px-8 2xl:grid-cols-4 col-start-1 row-start-1  md:grid-cols-2 sm:justify-center gap-5 grid-cols-1 z-20">
 
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
-            pages/index.tsx
-          </code>
-        </p>
-
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and its API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+          {loading ? <SkeletonCard cards={post.length} /> : post.slice(pagesVisited, pagesVisited + postsPerPage).map((post: { title }) => ( <PostCard post={post.node} key={post.title}  /> )) }
+        <div className=" lg:row-span-2 col-span-1 lg:col-start-3 2xl:col-start-4">
+          <div className='lg:sticky  relative'>  
+            <PostWidget categories={undefined} slug={undefined}  />
+          </div>
         </div>
-      </main>
+      </div>
+      <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
+      <div className="flex flex-1 justify-between sm:hidden">
 
-      <footer className="flex h-24 w-full items-center justify-center border-t">
-        <a
-          className="flex items-center justify-center gap-2"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-        </a>
-      </footer>
+        <ReactPaginate 
+            previousLabel= {"Previous"}
+            nextLabel={"Next"}
+            pageCount={pageCount}
+            onPageChange={changePage}
+            containerClassName={"flex flex-1 justify-between sm:hidden"}
+            pageClassName={'hidden relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50'}
+            previousLinkClassName={"relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"}
+            nextLinkClassName={"relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"}
+          />
+      </div>
+      <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
+        <div>
+          <p className="text-sm text-gray-700">
+            <span className="font-medium">{post.length}</span> Articles so far
+          </p>
+        </div>
+        <div>
+          <nav className="relative z-0 inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
+        <ReactPaginate 
+            previousLabel= {<ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />}
+            nextLabel={<ChevronRightIcon className="h-5 w-5" aria-hidden="true" />}
+            pageCount={pageCount}
+            onPageChange={changePage}
+            containerClassName={"relative z-0 inline-flex -space-x-px rounded-md shadow-sm"}
+            pageClassName={'relative cursor-pointer inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50'}
+            previousLinkClassName={"relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50"}
+            nextLinkClassName={"relative inline-flex items-center rounded-r-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50"}
+            disabledClassName={"focus:outline-none disabled:opacity-100 hover:none text-gray-100 bg-gray-50"}
+            activeClassName={"inline-flex z-20 px-4 py-2 text-blue-600 bg-blue-50 border border-blue-500 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"}
+          />
+          </nav>
+        </div>
+      </div>
     </div>
-  )
+    </div>
+  </>
+  );
 }
 
-export default Home
+// Fetch data at build time
+export async function getStaticProps() {
+  const post = (await getPosts()) || [];
+  return {
+    props: { 
+      post, 
+     },
+  };
+}
