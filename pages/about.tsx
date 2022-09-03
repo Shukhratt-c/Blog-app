@@ -1,7 +1,7 @@
 import React, {useRef, useEffect} from 'react'
 import ReactDOM from 'react-dom';
 import { renderSimpleIcon, ICloud, SimpleIcon } from "react-icon-cloud";
-import { DynamicCloud }from "../components/SkillsCloud1";
+import { DynamicCloud }from "../sections/SkillsCloud1";
 import { invertBg, lightTheme, ThemeProvider } from "../hooks/useTheme";
 import Footer from "../components/Footer";
 
