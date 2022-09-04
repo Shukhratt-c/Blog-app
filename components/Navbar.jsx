@@ -84,10 +84,8 @@ useEffect(() => {
           </div>
           <div className="-mr-2 -my-2 md:hidden">
             <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-              <a>
               <span className="sr-only">Open menu</span>
               <MenuIcon className="h-6 w-6" aria-hidden="true" />
-              </a>
             </Popover.Button>
           </div>
           <Popover.Group as="nav" className="hidden md:flex space-x-5">
@@ -209,10 +207,8 @@ useEffect(() => {
                 </div>
                 <div className="-mr-2">
                   <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                    <a>
                     <span className="sr-only">Close menu</span>
                     <XIcon className="h-6 w-6" aria-hidden="true" />
-                    </a>
                   </Popover.Button>
                 </div>
               </div>
@@ -223,7 +219,7 @@ useEffect(() => {
                 {categories.map((category, index) => (
                 <Link 
                 key={index.toString()} 
-                href={'/categories/${category.slug}'}
+                href={`/categories/${category.slug}`}
                 ><a>{category.name}</a></Link>
                ))}
                 </nav>
