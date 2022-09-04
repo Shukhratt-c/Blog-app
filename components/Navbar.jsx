@@ -72,13 +72,15 @@ useEffect(() => {
       <div className="max-w-6xl mx-auto border-b w-full border-blue-400 sm:px-10">
         <div className="sticky z-10 top-0 flex justify-between items-center py-3 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
-            <Link href="/"><a className="flex items-center cursor-pointer font-bold text-4xl text-black"> <Image
+            <Link href="/">
+                <a className="flex items-center cursor-pointer font-bold text-4xl text-black"> <Image
                     className=" w-auto"
                     width={70}
                     height={70}
                     src={logo}
                     alt="Sh"
-                  />ukhratt</a></Link>
+                  />ukhratt</a>
+            </Link>
           </div>
           <div className="-mr-2 -my-2 md:hidden">
             <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
@@ -87,8 +89,10 @@ useEffect(() => {
             </Popover.Button>
           </div>
           <Popover.Group as="nav" className="hidden md:flex space-x-5">
-              <Link href="/"  ><a className={classNames(currentRoute === "/" ? 'bg-gray-200' : 'bg-white',
-                      'group bg-white p-2 px-3  rounded-md inline-flex items-center text-base font-semibold hover:bg-gray-200 ')} >Home</a></Link>
+              <Link href="/"  >
+                <a className={classNames(currentRoute === "/" ? 'bg-gray-200' : 'bg-white',
+                      'group bg-white p-2 px-3  rounded-md inline-flex items-center text-base font-semibold hover:bg-gray-200 ')} >Home</a>
+              </Link>
 
             <Popover className="relative ">
               {({ open }) => (
@@ -127,10 +131,12 @@ useEffect(() => {
                             <Link
                             key={index.toString()} 
                             href={`/categories/${category.slug}`}
-                            ><a className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
+                            >
+                              <a className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
                               <ChartBarIcon className="flex-shrink-0 mx-2 h-6 w-6 text-indigo-600" aria-hidden="true" />
                                 <p className="text-base font-medium text-gray-900">{category.name}</p>
-                              </a></Link>
+                              </a>
+                            </Link>
                           ))}
                         </div>
                         <div className="px-5 py-5 bg-gray-50 space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
@@ -153,11 +159,15 @@ useEffect(() => {
               )}
             </Popover>
 
-            <Link href="/about"><a className={classNames(currentRoute === "/about" ? 'bg-gray-200' : 'bg-white',
-                      'group bg-white p-2 px-3 rounded-md inline-flex items-center text-base font-semibold hover:bg-gray-200 ')} >About</a></Link>
+            <Link href="/about"  >
+                <a className={classNames(currentRoute === "/about" ? 'bg-gray-200' : 'bg-white',
+                      'group bg-white p-2 px-3 rounded-md inline-flex items-center text-base font-semibold hover:bg-gray-200 ')} >About</a>
+              </Link>
 
-              <Link href="/contacts"><a className={classNames(currentRoute === "/contacts" ? 'bg-gray-200' : 'bg-white',
-                      'group bg-white p-2 px-3 rounded-md inline-flex items-center text-base font-semibold hover:bg-gray-200 ')} >Contacts</a></Link>
+              <Link href="/contacts"  >
+                <a className={classNames(currentRoute === "/contacts" ? 'bg-gray-200' : 'bg-white',
+                      'group bg-white p-2 px-3 rounded-md inline-flex items-center text-base font-semibold hover:bg-gray-200 ')} >Contacts</a>
+              </Link>
 
 
           </Popover.Group>
@@ -205,7 +215,6 @@ useEffect(() => {
               
               <div className="mt-6">
               <h4 className="font-bold text-dark text-xl mb-1">Categories</h4>
-                <nav className="grid gap-y-8">
                 
                 {categories.map((category, index) => (
                 <Link 
@@ -213,7 +222,7 @@ useEffect(() => {
                 href={`/categories/${category.slug}`}
                 ><a className="flex-shrink-0 mx-2 h-6 w-6 text-indigo-600" >{category.name}</a></Link>
                ))}
-                </nav>
+            
               </div>
             </div>
             <div className="py-6 px-5">
