@@ -31,16 +31,16 @@ const PostCard = ({ post}) => {
           <Link key={index} href={`/categories/${category.slug}
           `}>
             {/* {post.map((post: { title: Key | null | undefined }) => <PostCard post={post.node} key={post.title}  /> )} */}
-                  <span className="px-3 py-1 rounded-full text-xs bg-gray-100 cursor-pointer">
+                  <a className="px-3 py-1 rounded-full text-xs bg-gray-100 cursor-pointer">
                       {category.name}
-                    </span>
+                    </a>
           </Link>
       ))}
         </div>
 
         <h1 className=" ml-4 transition duration-200 mb-2 text-black cursor-pointer hover:text-blue-700 text-2xl font-bold">
         <Link 
-         href={`/post/${post.slug}`}>{post.title || <Skeleton />}</Link>
+         href={`/post/${post.slug}`}> <a>{post.title || <Skeleton />}</a></Link>
         </h1>
       
         <p className=" text-sm text-gray-700 font-normal px-5 mb-2">
