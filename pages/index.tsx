@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import { Key } from 'react'
 import { PostCard, PostWidget, About, SkeletonCard } from "../components"
 import { getPosts} from '../services'
-import { FeaturedPosts } from '../sections'
+import FeaturedPosts from '../sections/featuredPosts'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
 import ReactPaginate  from "react-paginate"
 
