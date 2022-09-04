@@ -216,11 +216,12 @@ useEffect(() => {
               <div className="mt-6">
               <h4 className="font-bold text-dark text-xl mb-1">Categories</h4>
                 <nav className="grid gap-y-8">
+                
                 {categories.map((category, index) => (
                 <Link 
                 key={index.toString()} 
                 href={`/categories/${category.slug}`}
-                ><a>{category.name}</a></Link>
+                ><a className="flex-shrink-0 mx-2 h-6 w-6 text-indigo-600" >{category.name}</a></Link>
                ))}
                 </nav>
               </div>
