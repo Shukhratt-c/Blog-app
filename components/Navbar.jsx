@@ -73,13 +73,13 @@ useEffect(() => {
         <div className="sticky z-10 top-0 flex justify-between items-center py-3 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <Link href="/">
-                <a className="flex items-center cursor-pointer font-bold text-4xl text-black"> <Image
-                    className=" sm:h-50 w-auto"
+            <a className="flex items-center cursor-pointer font-bold text-4xl text-black"> <Image
+                    className=" w-auto"
                     width={70}
                     height={70}
                     src={logo}
                     alt="Sh"
-                  /><span className="text-4xl">ukhratt</span></a>
+                  />ukhratt</a>
             </Link>
           </div>
           <div className="-mr-2 -my-2 md:hidden">

@@ -1,4 +1,4 @@
-import { StrictMode, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { ICloud, renderSimpleIcon, SimpleIcon } from "react-icon-cloud";
 import Footer from "../components/Footer";
 import { invertBg, lightTheme, ThemeProvider } from "../hooks/useTheme";
@@ -54,7 +54,7 @@ function About() {
     const el = document.getElementById('age');
 
     const interval = setInterval(() => {
-      let time = (new Date().valueOf() + - new Date(1121616240000).valueOf() ) / (1000 * 60 * 60 * 24 * 365.25); // milliseconds per year
+      let time = (new Date().valueOf() - new Date(1121616240000).valueOf() ) / (1000 * 60 * 60 * 24 * 365.25); // milliseconds per year
       el!.innerText = time.toString().substring(0, 12);
     }, 50);
     return () => clearInterval(interval);
@@ -105,11 +105,8 @@ function About() {
               <div className="bg-white relative rounded-lg p-8 sm:p-12">
                   <span className="block mb-4 text-md text-primary font-semibold">
                   my software planet
-                  </span>
-                  <StrictMode>
+                  </span>                  
                     <DynamicCloud iconSlugs={slugs} />        
-
-                  </StrictMode>
               </div>
             </div>
           </div>

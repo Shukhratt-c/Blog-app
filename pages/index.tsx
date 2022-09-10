@@ -1,7 +1,7 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
 import ReactPaginate from "react-paginate"
 import { About, PostCard, PostWidget, SkeletonCard } from "../components"
-import FeaturedPosts from '../sections/featuredPosts'
+import { FeaturedPosts } from '../sections'
 import { getPosts } from '../services'
 
 import React, { useEffect, useState } from 'react'
@@ -31,10 +31,7 @@ export default function Home({post}: any ) {
     window.scrollTo(0, 540)
   };
 
-  //Initialize an array of post length and fill it with 0's
   const card =  Array(post.length).fill(0);
-
-
 
   return (
     <React.Fragment>
