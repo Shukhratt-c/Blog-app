@@ -1,9 +1,8 @@
-import React, {useRef, useEffect} from 'react'
-import ReactDOM from 'react-dom';
-import { renderSimpleIcon, ICloud, SimpleIcon } from "react-icon-cloud";
-import { DynamicCloud }from "../components/SkillsCloud1";
-import { invertBg, lightTheme, ThemeProvider } from "../hooks/useTheme";
+import { StrictMode, useEffect, useRef } from 'react';
+import { ICloud, renderSimpleIcon, SimpleIcon } from "react-icon-cloud";
 import Footer from "../components/Footer";
+import { invertBg, lightTheme, ThemeProvider } from "../hooks/useTheme";
+import { DynamicCloud } from "../sections/SkillsCloud1";
 
 export const cloudProps: Omit<ICloud, 'children'> = {
   containerProps: {
@@ -55,8 +54,8 @@ function About() {
     const el = document.getElementById('age');
 
     const interval = setInterval(() => {
-      let time = (new Date() - new Date(1121616240000)) / (1000 * 60 * 60 * 24 * 365.25); // milliseconds per year
-      el.innerText = time.toString().substring(0, 12);
+      let time = (new Date().valueOf() + - new Date(1121616240000).valueOf() ) / (1000 * 60 * 60 * 24 * 365.25); // milliseconds per year
+      el!.innerText = time.toString().substring(0, 12);
     }, 50);
     return () => clearInterval(interval);
   }, []);
@@ -107,7 +106,10 @@ function About() {
                   <span className="block mb-4 text-md text-primary font-semibold">
                   my software planet
                   </span>
-                 <DynamicCloud iconSlugs={slugs} />        
+                  <StrictMode>
+                    <DynamicCloud iconSlugs={slugs} />        
+
+                  </StrictMode>
               </div>
             </div>
           </div>

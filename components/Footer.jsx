@@ -1,5 +1,3 @@
-import React from 'react'
-import Link from "next/link";
 
 function Footer() {
   const currentYear = new Date().getFullYear();
@@ -110,8 +108,7 @@ function Footer() {
     </div>
   </div>
     <div className=" w-full flex text-center justify-center text-gray-700 p-4 bg-slate-300">
-        © {currentYear} Copyright:
-        <a className="text-gray-800"> All rights reserved</a>
+       <p> © {currentYear} Copyright:<a className="text-gray-800"> All rights reserved</a></p>
     </div>
 
 </footer>

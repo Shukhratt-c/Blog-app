@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 
-@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600;700&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Roboto', sans-serif;
   &:before{
     content:'';
     content: "";
@@ -29,6 +29,50 @@ body {
 
 .text-shadow{
   text-shadow: 0px 2px 0px rgb(0 0 0 / 30%);
+}
+
+
+ol {
+  counter-reset:li; /* Initiate a counter */
+  margin-left:0; /* Remove the default left margin */
+  padding-left:0; /* Remove the default left padding */
+}
+ol > li {
+  position:relative; /* Create a positioning context */
+  margin:0 0 6px 2em; /* Give each list item a left margin to make room for the numbers */
+  padding:4px 8px; /* Add some spacing around the content */
+  list-style:none; /* Disable the normal item numbering */
+  
+}
+ol > li:before {
+  content:counter(li) ".  "; /* Use the counter as content */
+  counter-increment:li; /* Increment the counter by 1 */
+  /* Position and style the number */
+  position:absolute;
+  top:-2px;
+  left:-2em;
+  width:2em;
+  /* Some space between the number and the content in browsers that support
+     generated content but not positioning it (Camino 2 is one example) */
+  margin-right:8px;
+  padding:4px;
+  color: gray;
+  font-weight:bold;
+  font-family:"Helvetica Neue", Arial, sans-serif;
+  text-align:center;
+}
+
+ul.ulInHYGraph > li {
+  position:relative; /* Create a positioning context */
+  margin:0 0 6px 2em; /* Give each list item a left margin to make room for the numbers */
+  padding:4px 8px; /* Add some spacing around the content */
+}
+
+p.line-clamp {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 
@@ -59,6 +103,7 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 * {

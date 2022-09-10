@@ -12,7 +12,7 @@ const [loading, setLoading] = useState(true);
       setTimeout(() => {
         setLoading(false)
         ;
-      }, 30000);
+      }, 10000);
     }
   }, [posts]);
   const router = useRouter();
@@ -20,11 +20,14 @@ const [loading, setLoading] = useState(true);
   if (router.isFallback) {
     return <Loader />;
   }
-
+  const card =  Array(posts.length).fill(0);
   return (
     <div className="container mx-auto mt-8 px-8 mb-8">
       <div className=" grid lg:grid-cols-3 2xl:grid-cols-4 md:grid-cols-2 sm:justify-center gap-5 grid-cols-1 z-20">
-      {loading ? <SkeletonCard cards={posts.length} /> : posts.map((post, index) => (<PostCard key={index} post={post.node} /> ))}
+      {loading && card.map((index) => (
+            <SkeletonCard key={index} />
+          ))}
+       {!loading && posts.map((post, index) => (<PostCard key={index} post={post.node} /> ))}
         <div className="lg:row-span-2 col-span-1 2xl:col-start-4 lg:col-start-3">
           <div className="relative lg:sticky top-24">
              <Categories />

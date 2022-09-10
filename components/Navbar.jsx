@@ -69,17 +69,17 @@ useEffect(() => {
     // bg-slate-100
     <Popover 
     className="sticky top-0 z-30  bg-white">
-      <div className="max-w-6xl mx-auto border-b w-full border-blue-400 sm:px-10">
+      <div className="lg:max-w-6xl mx-auto border-b w-full border-blue-400 md:max-w-3xl max-w-xl">
         <div className="sticky z-10 top-0 flex justify-between items-center py-3 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <Link href="/">
-                <span className="flex items-center cursor-pointer font-bold text-4xl text-black"> <Image
-                    className=" w-auto"
+                <a className="flex items-center cursor-pointer font-bold text-4xl text-black"> <Image
+                    className=" sm:h-50 w-auto"
                     width={70}
                     height={70}
                     src={logo}
                     alt="Sh"
-                  />ukhratt</span>
+                  /><span className="text-4xl">ukhratt</span></a>
             </Link>
           </div>
           <div className="-mr-2 -my-2 md:hidden">
@@ -194,7 +194,7 @@ useEffect(() => {
         leaveFrom="opacity-100 scale-100"
         leaveTo="opacity-0 scale-95"
       >
-        <Popover.Panel focus className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden z-10">
+        <Popover.Panel focus className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden z-30">
           <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
             <div className="pt-5 pb-6 px-5">
               <div className="flex items-center justify-between">
@@ -215,14 +215,14 @@ useEffect(() => {
               
               <div className="mt-6">
               <h4 className="font-bold text-dark text-xl mb-1">Categories</h4>
-                <nav className="grid gap-y-8">
+                
                 {categories.map((category, index) => (
                 <Link 
                 key={index.toString()} 
-                href={'/categories/${category.slug}'}
-                ><a>{category.name}</a></Link>
+                href={`/categories/${category.slug}`}
+                ><a className="flex-shrink-0 mx-2 h-6 w-6 text-indigo-600" >{category.name}</a></Link>
                ))}
-                </nav>
+            
               </div>
             </div>
             <div className="py-6 px-5">

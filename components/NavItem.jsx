@@ -1,6 +1,6 @@
-import React from "react";
 import { useRouter } from "next/router";
 import propTypes from "prop-types";
+import React from "react";
 
 const NavItem = ({ item }) => {
     const router = useRouter();

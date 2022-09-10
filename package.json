@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@graphcms/rich-text-react-renderer": "^0.6.1",
     "@headlessui/react": "^1.6.6",
     "@heroicons/react": "^1.0.6",
     "axios": "^0.27.2",
@@ -16,8 +17,9 @@
     "moment": "^2.29.4",
     "next": "latest",
     "nodemailer": "^6.7.8",
-    "react": "18.1.0",
-    "react-dom": "18.1.0",
+    "prismjs": "^1.29.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-hook-form": "^7.34.2",
     "react-icon-cloud": "^4.1.4",
     "react-loading-skeleton": "^3.1.0",
@@ -30,8 +32,9 @@
   "devDependencies": {
     "@types/node": "17.0.35",
     "@types/nodemailer": "^6.4.5",
-    "@types/react": "18.0.9",
-    "@types/react-dom": "18.0.5",
+    "@types/prismjs": "^1.26.0",
+    "@types/react": "^18.0.18",
+    "@types/react-dom": "^18.0.6",
     "@types/uuid": "^8.3.4",
     "autoprefixer": "^10.4.7",
     "postcss": "^8.4.14",

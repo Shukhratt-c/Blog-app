@@ -1,14 +1,12 @@
-import type { NextPage } from 'next'
-import { Key } from 'react'
-import { PostCard, PostWidget, About, SkeletonCard } from "../components"
-import { getPosts} from '../services'
-import { FeaturedPosts } from '../sections'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
-import ReactPaginate  from "react-paginate"
+import ReactPaginate from "react-paginate"
+import { About, PostCard, PostWidget, SkeletonCard } from "../components"
+import FeaturedPosts from '../sections/featuredPosts'
+import { getPosts } from '../services'
 
 import React, { useEffect, useState } from 'react'
 
-export default function Home({ post } ) {  
+export default function Home({post}: any ) {  
   const [loading, setLoading] = useState(true);
   const [pageNumber, setPageNumber] = useState(0)
 
@@ -22,22 +20,24 @@ export default function Home({ post } ) {
       setTimeout(() => {
         setLoading(false)
         ;
-      }, 30000);
+      }, 11000);
     }
   }, [post]);
 
   const pageCount = Math.ceil(post.length / postsPerPage);
 
-  const changePage = ({ selected }) => {
+  const changePage = ({selected}: any) => {
     setPageNumber(selected);
     window.scrollTo(0, 540)
   };
 
+  //Initialize an array of post length and fill it with 0's
+  const card =  Array(post.length).fill(0);
 
-  //Initialize an array of length 13 and fill it with 0's
+
 
   return (
-  <>
+    <React.Fragment>
     <div className="container mx-auto px-10 mb-8">
       <div>
           <About />
@@ -45,14 +45,16 @@ export default function Home({ post } ) {
       <div className="z-20">
             <FeaturedPosts/>
       </div>
-
       <div className=" grid lg:grid-cols-3 2xl:px-8 2xl:grid-cols-4 col-start-1 row-start-1  md:grid-cols-2 sm:justify-center gap-5 grid-cols-1 z-20">
 
-          {loading ? <SkeletonCard cards={post.length} /> : post.slice(pagesVisited, pagesVisited + postsPerPage).map((post: { title }) => ( <PostCard post={post.node} key={post.title}  /> )) }
+          {loading && card.map((index: number) => (
+            <SkeletonCard key={index} />
+          ))} 
+          {!loading && post.slice(pagesVisited, pagesVisited + postsPerPage).map((post: any) => ( <PostCard post={post.node} key={post.title}  /> )) }
         <div className=" lg:row-span-2 col-span-1 lg:col-start-3 2xl:col-start-4">
           <div className='lg:sticky  relative'>  
             <PostWidget categories={undefined} slug={undefined}  />
-          </div>
+          </div> 
         </div>
       </div>
       <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
@@ -93,8 +95,8 @@ export default function Home({ post } ) {
         </div>
       </div>
     </div>
-    </div>
-  </>
+  </div>
+  </React.Fragment>
   );
 }
 
