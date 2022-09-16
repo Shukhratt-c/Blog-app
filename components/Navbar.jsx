@@ -68,9 +68,9 @@ useEffect(() => {
   return (
     // bg-slate-100
     <Popover 
-    className="sticky top-0 z-30  bg-white">
+    className="sticky top-0 z-40  bg-white">
       <div className="lg:max-w-6xl mx-auto border-b w-full border-blue-400 md:max-w-3xl max-w-xl">
-        <div className="sticky z-10 top-0 flex justify-between items-center py-3 md:justify-start md:space-x-10">
+        <div className="sticky z-30 top-0 flex justify-between items-center py-3 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <Link href="/">
             <a className="flex items-center cursor-pointer font-bold text-4xl text-black"> <Image
@@ -194,7 +194,7 @@ useEffect(() => {
         leaveFrom="opacity-100 scale-100"
         leaveTo="opacity-0 scale-95"
       >
-        <Popover.Panel focus className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden z-30">
+        <Popover.Panel focus className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden z-40">
           <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
             <div className="pt-5 pb-6 px-5">
               <div className="flex items-center justify-between">

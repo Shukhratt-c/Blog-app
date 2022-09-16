@@ -25,7 +25,7 @@ const PostDetail = ({ post }) => {
   return (
     <>
       <div className="bg-white rounded-lg lg:p-8  pb-12 mb-8">
-        <div className="relative overflow-hidden shadow-md mb-6">
+        <div className="relative overflow-hidden shadow-md lg:mb-6">
           <img
             src={post.featuredImage.url}
             loading="lazy"
@@ -33,41 +33,15 @@ const PostDetail = ({ post }) => {
             className="object-top h-full w-full object-cover  rounded-t-lg lg:rounded-lg"
           />
         </div>
-        <div className="lg:mx-10 lg:px-0 md:p-8">
-          <div className="flex items-center mb-8 w-full">
-            <div className="hidden md:flex justify-center lg:mb-0 lg:w-auto mr-8 items-center">
-              <img
-                alt={post.author.name}
-                height="30px"
-                width="30px"
-                className="align-middle rounded-full"
-                src={post.author.photo.url}
-              />
-              <p className="inline align-middle text-gray-700 ml-2 font-medium text-lg">
-                {post.author.name}
-              </p>
-            </div>
-            <div className="font-medium text-gray-700">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 inline mr-2 text-blacl"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                />
-              </svg>
-              <span className="align-middle">
-                {moment(post.createdAt).format("MMM DD, YYYY")}
-              </span>
+          <div className="lg:text-md text-sm flex items-center mb-8 w-full">
+            <div className=" flex flex-row text-center lg:px-2 items-center justify-start w-full">
+            <div className="flex items-center mt-2 justify-center mb-0 w-auto">
+              <span className="align-middle">{`Updated at ${moment(post.updatedAt).format('DD MMM YYYY')}`} </span>
             </div>
           </div>
-          <h1 className="mb-8 text-4xl font-bold">{post.title}</h1>
+          </div>
+        <div className="lg:mx-10 lg:px-0 md:p-8">
+          <h1 className="mb-8 text-3xl lg:text-4xl font-bold">{post.title}</h1>
           <RichText
         content={post.content.raw.children}
         renderers={{
@@ -89,7 +63,10 @@ const PostDetail = ({ post }) => {
 
           
           code: ({ children }) => <code className="bg-gray-100 text-sm rounded ring-2 ring-gray-200 p-1">{children}</code>,
-          h1: ({ children }) => <h1 className={`wfafsa`}>{children}</h1>,
+          h1: ({ children }) => <h1 className="font-bold text-4xl">{children}</h1>,
+          h2: ({ children }) => <h2 className="font-bold text-3xl">{children}</h2>,
+          h3: ({ children }) => <h3 className="font-bold text-2xl">{children}</h3>,
+          h4: ({ children }) => <h4 className="font-bold text-xl">{children}</h4>,
           blockquote: ({ children }) => (
             <blockquote
               className="p-6 m-2 leading-loose tracking-wider font-light text-md"
@@ -113,9 +90,6 @@ const PostDetail = ({ post }) => {
               {children}
             </a>
           ),
-          h2: ({ children }) => (
-            <h2 style={{ color: 'darkcyan' }}>{children}</h2>
-          ),
           // img: ({ src, altText, height, width }) => (
           //   <Image
           //     src={src}
@@ -126,7 +100,7 @@ const PostDetail = ({ post }) => {
           //   />
           // ),
           p: ({ children }) => (
-            <p className=' leading-loose tracking-wider text-black font-light text-lg'>{children}</p>
+            <p className='lg:py-4 py-2 lg:leading-loose lg:tracking-wider text-black lg:font-light sm:text-gray-500 sm:text-md lg:text-lg'>{children}</p>
           ),
           bold: ({ children }) => <strong className="text-black font-bold">{children}</strong>,
           code_block: ({ children }) => {
@@ -160,6 +134,7 @@ const PostDetail = ({ post }) => {
             image: ({ url, alt, width, height }) => {
               return (
                 <Image
+                  className='lg:py-4 py-2'
                   src={url}
                   alt={alt}
                   width={width}
