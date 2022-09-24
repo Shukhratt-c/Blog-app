@@ -260,7 +260,7 @@ useEffect(() => {
                   ></path>
                 </svg>
               </a>
-              <a href="https://t.me/shukhratt_c" className="mr-9 text-gray-500">
+              <a href="https://t.me/shukhrattblog" className="mr-9 text-gray-500">
                 <svg 
                     xmlns="http://www.w3.org/2000/svg" 
                     aria-hidden="true"
