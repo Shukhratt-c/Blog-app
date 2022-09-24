@@ -127,7 +127,7 @@ function Contacts() {
                      rounded
                      "
                      >
-                    <a href="https://t.me/shukhratt_c" className=" text-gray-500 hover:text-blue-500">
+                    <a href="https://t.me/shukhrattblog" className=" text-gray-500 hover:text-blue-500">
                   <svg 
                       xmlns="http://www.w3.org/2000/svg" 
                       width="28" height="28" 
@@ -141,7 +141,7 @@ function Contacts() {
                   </div>
                   <div className="w-full">
                      <h4 className="font-bold text-dark text-xl mb-1">Telegram</h4>
-                     <a href="https://t.me/shukhratt_c" className=" text-gray-800 hover:text-blue-500">
+                     <a href="https://t.me/shukhrattblog" className=" text-gray-800 hover:text-blue-500">
                       <p className="text-base text-body-color">
                           Join for daily newsletter
                       </p>
