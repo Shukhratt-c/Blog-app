@@ -2,7 +2,6 @@ import React from 'react'
 import Skeleton from 'react-loading-skeleton'
 
 const SkeletonCard = () => {
-  // return Array(cards).fill(0).ma((i) => (
     return (
     <>
     <div role="status" className='bg-white border border-gray-200 animate-pulse mb-3 shadow-lg rounded-lg overflow-hidden  pb-5 w-full'>
