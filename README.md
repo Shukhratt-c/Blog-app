@@ -1,27 +1,16 @@
-# Next.js + Tailwind CSS Example
+# Blogging App
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+This project is a blogging app that allows users to create and view blog posts. It is built using Next.js for the front-end, Prism.js for code highlighting, Tailwind CSS for styling, GraphQL for the server, and Hyphgraph CMS as the headless CMS. The project also uses simple-icons, react-paginate, and nodemailer as minor packages.
 
-## Deploy your own
+The main purpose of this project is to practice using these technologies and to gain a deeper understanding of how they work together.
+## Built With
+* [Next.js](https://nextjs.org/)
+* [Prism.js](https://prismjs.com/)
+* [GraphQL](https://graphql.org)
+* [Tailwind CSS](https://tailwindcss.com/)
+* [Hygraph CDM](https://github.com/hasura/graphql-engine)
+* [Nodemailer](https://nodemailer.com)
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+## Deployment
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-```
-
-```bash
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
-
-```bash
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+The app is deployed on Vercel and can be accessed [here](https://shukhratt-blog.vercel.app).
